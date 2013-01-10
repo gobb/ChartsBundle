@@ -17,4 +17,14 @@
         </service>
     </services>
     -->
+    <services>
+	    <service id="charts.twig.charts_extension" class="J\ChartsBundle\Twig\ChartsExtension">
+	        <tag name="twig.extension" />
+	        <argument type="service" id="kernel" />
+	    </service>
+	    <service id="charts.engine.flot" class="J\ChartsBundle\ChartsEngine\Flot">
+	    	<tag name="charts.engine" />
+    	</service>
+	</services>
+
 </container>

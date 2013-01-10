@@ -9,6 +9,5 @@ class JChartsBundle extends Bundle
 {
     public function boot()
     {
-    	$this->container->get('twig')->addExtension(new \J\ChartsBundle\Twig\ChartsExtension());
     }
 }

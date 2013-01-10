@@ -1,8 +1,18 @@
 <?php
 namespace J\ChartsBundle\Twig;
 
-class ChartsExtension extends \Twig_Extension {
+use J\ChartsBundle\ChartsEngine\Flot;
 
+use Symfony\Component\DependencyInjection\ContainerAware;
+
+final class ChartsExtension extends \Twig_Extension {
+
+	private $container;
+	
+	function __construct(\AppKernel $kernel) {
+		$this->container = $kernel->getContainer();
+	}
+	
 	public function getFunctions()
 	{
 		return array(
@@ -10,9 +20,13 @@ class ChartsExtension extends \Twig_Extension {
 		);
 	}
 
-	public function chart($dataArrays)
+	public function chart($dataArrays, $type)
 	{
-		return "Here will be Chart";
+		$engine = $this->container->get("charts.engine.".$type);
+
+		$engine->setData($dataArrays);
+		
+		return $engine->getHtml();
 	}
 
 	public function getName()
