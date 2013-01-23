@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Symfony charter</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap-combined.min.css" rel="stylesheet">
+    <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap-responsive.min.css" rel="stylesheet">
+
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+  </head>
+
+  <body>
+
+<div class="container">
+	<div class="page-banner">
+	    <h1>Symfony2 Charter</h1>
+	    <p id="description">Charting solution for Symfony2.</p>
+	    <div>
+		<a class="btn btn-primary btn-large" href="somelinktogithubdownload" target="_blank">Download Charter</a>
+		<a class="right-button btn btn-large" href="http://github.com/gitgis/charter" target="_blank" title="Fork me on GitHub">Charter on GitHub <img src="includes/github-icon.png" alt="GitHub Icon"></a>
+		<br><br>
+		<!-- AddThis Button BEGIN -->
+[@TODO Share buttons]
+		<script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=ra-4fa2edbb6da70bd1"></script>
+		<!-- AddThis Button END -->
+	    </div>
+	</div>
+
+	<div class="row">
+		<div class="span6">
+		<h3>About</h3>
+		<p>Some desc</p>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="span6">
+		<h3>Client side support</h3>
+		<p>Easy to change charting JS engine....</p>
+		<p>[TODO cool pics]</p>
+		</div>
+
+		<div class="span6">
+		<h3>Server side support</h3>
+		<p>Excelent for creating PDF and mail reports</p>
+		<p>[TODO cool pics]</p>
+		</div>
+	</div>
+
+[@TODO make below look like Symfony2 docs - tabs for Twig/PHP ?]
+
+	<div class="row">
+		<div class="span6">
+		<h3>Twig support</h3>
+<pre>
+{% chart width='600' height='400' type='flot' %}
+{% title label='Sales' %}
+{% serie data=data1 type='line' %}
+{% serie data=data2 type='bar' %}
+{% axis_y type='month' %}
+{% endchart %}
+</pre>
+		</div>
+
+		<div class="span6">
+		<h3>PHP support</h3>
+<pre>
+$data = array(150,220,300,-250,-420,-200,300,200,100);
+$settings = array('width'=>500, 'height'=>300);
+$factory = new Factory();
+
+//or
+//$factory = $this->get('charter.factory')->create('bar')
+$graph = $factory->addData($data)->setSettings($settings)->create('bar');
+
+return array('name' => $graph->draw(),'chart' => $graph->createView());
+</pre>
+		</div>
+	</div>
+
+[@TODO unify API]
+
+</div>
+
+    <script src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/js/bootstrap.min.js"></script>
+
+  </body>
+</html>
